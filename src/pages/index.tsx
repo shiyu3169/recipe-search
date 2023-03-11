@@ -15,8 +15,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
+        {/* 1. The home page should have a search bar where users can enter keywords to search for recipes.  */}
+        <input type='text' placeholder='Search for recipes' />
         {/*
-        1. The home page should have a search bar where users can enter keywords to search for recipes. 
         2. The search results should display recipe cards with each recipe's name, image, and brief description. 
         3. Users can click on a recipe card to view the full recipe details, including the ingredients and instructions.
         4. Users can save their favorite recipes to a bookmark list. 
