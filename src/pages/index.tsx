@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Container from 'react-bootstrap/esm/Container'
+import { Container } from 'react-bootstrap'
 import RecipeSearch from '../components/RecipeSearch'
 
 export default function Home() {
@@ -16,10 +16,12 @@ export default function Home() {
       </Head>
       <main>
         <Container className='my-5'>
-          {/* 1. The home page should have a search bar where users can enter keywords to search for recipes.  */}
+          {/* 
+          1. The home page should have a search bar where users can enter keywords to search for recipes. 
+          2. The search results should display recipe cards with each recipe's name, image, and brief description. 
+           */}
           <RecipeSearch />
           {/*
-        2. The search results should display recipe cards with each recipe's name, image, and brief description. 
         3. Users can click on a recipe card to view the full recipe details, including the ingredients and instructions.
         4. Users can save their favorite recipes to a bookmark list. 
         5. The bookmark list should be displayed on a separate page, with each saved recipe displayed as a card with the name and image of the recipe.

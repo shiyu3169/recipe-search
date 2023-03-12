@@ -6,6 +6,7 @@ import {
   useMemo,
   useReducer,
 } from 'react'
+import { useSearchRecipes } from '../hooks/useSearchRecipes'
 import { ActionMap } from '../types/actionMap'
 
 export type Recipe = {
@@ -20,12 +21,12 @@ type RecipeState = {
 }
 
 export enum RecipeActionType {
-  SEARCH_RECIPES = 'SEARCH_RECIPES',
+  SET_RECIPES = 'SET_RECIPES',
 }
 
 export type RecipeActionPayload = {
-  [RecipeActionType.SEARCH_RECIPES]: {
-    searchTerm: string
+  [RecipeActionType.SET_RECIPES]: {
+    recipes: Recipe[]
   }
 }
 
@@ -34,11 +35,17 @@ type RecipeAction =
 
 const initialState = {
   recipes: [],
+  searchTerm: '',
 }
 
 const recipeReducer = (state: RecipeState, action: RecipeAction) => {
   const { type, payload } = action
   switch (type) {
+    case RecipeActionType.SET_RECIPES:
+      return {
+        ...state,
+        recipes: payload.recipes,
+      }
     default:
       return initialState
   }
