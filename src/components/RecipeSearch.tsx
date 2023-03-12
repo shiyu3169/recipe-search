@@ -1,8 +1,9 @@
-import { Form } from 'react-bootstrap'
+import { Col, Container, Form, Row, Stack } from 'react-bootstrap'
 import { useState, ChangeEvent, useEffect } from 'react'
 import { useDebounce } from '../hooks/useDebouce'
 import { RecipeActionType, useRecipeContext } from '../providers/RecipeProvider'
 import { useSearchRecipes } from '../hooks/useSearchRecipes'
+import RecipeCard from './RecipeCard'
 
 export default function RecipeSearch() {
   const {
@@ -31,7 +32,19 @@ export default function RecipeSearch() {
       {isLoading ?? 'Loading...'}
       {isError ?? error}
       {recipes?.length > 0 ? (
-        recipes.map((recipe) => <div key={recipe.idMeal}>{recipe.strMeal}</div>)
+        <Container>
+          <Row className='justify-content-md-center'>
+            {recipes.map((recipe) => (
+              <Col key={recipe.idMeal} className='mb-3' sm='12' md='6' lg='4'>
+                <RecipeCard
+                  title={recipe.strMeal}
+                  imageSrc={recipe.strMealThumb}
+                  description={recipe.strInstructions}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
       ) : (
         <div>Empty</div>
       )}
