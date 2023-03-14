@@ -1,4 +1,5 @@
-import { Button, Card } from 'react-bootstrap'
+import { useRouter } from 'next/router'
+import { Card } from 'react-bootstrap'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { Recipe } from '../providers/RecipeProvider'
 
@@ -8,10 +9,11 @@ type RecipeCardProps = {
 
 export default function RecipeCard({ recipe }: RecipeCardProps) {
   const { strMealThumb, strMeal, strInstructions } = recipe
-  const [, setRecipe] = useLocalStorage(recipe.idMeal, {})
+  const [, setRecipes] = useLocalStorage('recipes', {})
+  const router = useRouter()
   const onClick = () => {
-    // store recipe into local storage so there is a way to get recipe if user reload the page on recipe details
-    setRecipe(recipe)
+    setRecipes((recipes) => ({ ...recipes, [recipe.idMeal]: recipe }))
+    router.push(`/recipe/${recipe.idMeal}`)
   }
   return (
     <Card
