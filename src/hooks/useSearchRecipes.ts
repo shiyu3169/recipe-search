@@ -14,7 +14,6 @@ export const useSearchRecipes = (searchTerm: string) => {
     queryKey: ['recipes', searchTerm],
     queryFn: () => searchRecipes(searchTerm),
     enabled: searchTerm.length > 0,
-
     onSuccess(data) {
       dispatch({
         type: RecipeActionType.SET_RECIPES,

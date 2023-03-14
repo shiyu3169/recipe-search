@@ -6,7 +6,6 @@ import {
   useMemo,
   useReducer,
 } from 'react'
-import { useSearchRecipes } from '../hooks/useSearchRecipes'
 import { ActionMap } from '../types/actionMap'
 
 export type Recipe = {
@@ -15,7 +14,6 @@ export type Recipe = {
   strInstructions: string
   strMealThumb: string
 }
-
 type RecipeState = {
   recipes: Recipe[]
 }

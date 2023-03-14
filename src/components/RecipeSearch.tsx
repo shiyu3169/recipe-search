@@ -36,17 +36,13 @@ export default function RecipeSearch() {
           <Row className='justify-content-md-center'>
             {recipes.map((recipe) => (
               <Col key={recipe.idMeal} className='mb-3' sm='12' md='6' lg='4'>
-                <RecipeCard
-                  title={recipe.strMeal}
-                  imageSrc={recipe.strMealThumb}
-                  description={recipe.strInstructions}
-                />
+                <RecipeCard recipe={recipe} />
               </Col>
             ))}
           </Row>
         </Container>
       ) : (
-        <div>Empty</div>
+        <div>No </div>
       )}
     </>
   )
