@@ -16,7 +16,7 @@ export default function Favorite() {
   return (
     <>
       <Head>
-        <title>RecipeFinder</title>
+        <title>RecipeFinder - Favorites</title>
         <meta
           name='description'
           content='Find delicious recipes for any occasion with our easy-to-use recipe search app'
