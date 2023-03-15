@@ -4,6 +4,7 @@ import { useDebounce } from '../hooks/useDebouce'
 import { useRecipeContext } from '../providers/RecipeProvider'
 import { useSearchRecipes } from '../hooks/useSearchRecipes'
 import RecipeCard from './RecipeCard'
+import RecipesList from './RecipesList'
 
 export default function RecipeSearch() {
   const {
@@ -31,19 +32,7 @@ export default function RecipeSearch() {
       </Form>
       {isLoading ?? 'Loading...'}
       {isError ?? error}
-      {recipes?.length > 0 ? (
-        <Container>
-          <Row className='justify-content-md-center'>
-            {recipes.map((recipe) => (
-              <Col key={recipe.idMeal} className='mb-3' sm='12' md='6' lg='4'>
-                <RecipeCard recipe={recipe} />
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      ) : debouncedValue ? (
-        <div>No Result is found</div>
-      ) : null}
+      {debouncedValue ? <RecipesList recipes={recipes} /> : null}
     </>
   )
 }

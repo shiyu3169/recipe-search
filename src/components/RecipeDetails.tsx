@@ -36,29 +36,31 @@ export default function RecipeDetails({ recipe }: RecipeDetailsProps) {
     <Container className='mt-5 '>
       <Row className='align-items-center' md='1' lg='2'>
         <Col>
-          {isFavorite ? (
-            <Button
-              className='mb-2'
-              variant='outline-danger'
-              onClick={removeFavorite}
-            >
-              Remove from Favorite
-            </Button>
-          ) : (
-            <Button
-              onClick={addFavorite}
-              className='mb-2'
-              variant='outline-warning'
-            >
-              Add to Favorite
-            </Button>
-          )}
+          <div>
+            {isFavorite ? (
+              <Button
+                className='mb-2'
+                variant='outline-danger'
+                onClick={removeFavorite}
+              >
+                Remove from Favorite
+              </Button>
+            ) : (
+              <Button
+                onClick={addFavorite}
+                className='mb-2'
+                variant='outline-warning'
+              >
+                Add to Favorite
+              </Button>
+            )}
+          </div>
           {/* TODO: add a loader for image */}
           <Image
             src={recipe.strMealThumb}
             alt='Picture of the author'
-            width={500}
-            height={500}
+            width={400}
+            height={400}
           />
         </Col>
         <Col>
