@@ -5,6 +5,8 @@ export const useLocalStorage = <T>(
   initialValue: T | (() => T),
 ) => {
   const [value, setValue] = useState<T>(() => {
+    // THis is necessary for next.js
+    if (typeof window === 'undefined') return null
     const jsonValue = localStorage.getItem(key)
     return jsonValue
       ? JSON.parse(jsonValue)

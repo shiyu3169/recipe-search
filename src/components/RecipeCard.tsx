@@ -21,8 +21,8 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
       style={{ width: '100%', cursor: 'pointer' }}
       onClick={onClick}
     >
-      {/* TODO: update this to use Next.js Image */}
       <div className='hover-zoom'>
+        {/* TODO: update image to use Next.js Image */}
         <Card.Img variant='top' src={strMealThumb} draggable={false} />
       </div>
       <Card.Body>
