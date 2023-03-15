@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { Col, Container, ListGroup, Row } from 'react-bootstrap'
-import BackButton from '../../components/utils/BackButton'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { Recipe } from '../../providers/RecipeProvider'
 import { parseIngredients } from '../../utils'
@@ -17,7 +16,7 @@ export default function RecipeDetails() {
 
   return (
     <Container className='mt-5 '>
-      <Row className='align-items-center' sm='1' md='2'>
+      <Row className='align-items-center' md='1' lg='2'>
         <Col>
           {/* TODO: add a loader for image */}
           <Image
@@ -44,7 +43,6 @@ export default function RecipeDetails() {
       <Row className='mt-4'>
         <p>{recipe.strInstructions}</p>
       </Row>
-      <BackButton />
     </Container>
   )
 }

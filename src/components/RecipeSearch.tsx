@@ -1,7 +1,7 @@
 import { Col, Container, Form, Row, Stack } from 'react-bootstrap'
 import { useState, ChangeEvent, useEffect } from 'react'
 import { useDebounce } from '../hooks/useDebouce'
-import { RecipeActionType, useRecipeContext } from '../providers/RecipeProvider'
+import { useRecipeContext } from '../providers/RecipeProvider'
 import { useSearchRecipes } from '../hooks/useSearchRecipes'
 import RecipeCard from './RecipeCard'
 
@@ -41,9 +41,9 @@ export default function RecipeSearch() {
             ))}
           </Row>
         </Container>
-      ) : (
-        <div>No </div>
-      )}
+      ) : debouncedValue ? (
+        <div>No Result is found</div>
+      ) : null}
     </>
   )
 }
