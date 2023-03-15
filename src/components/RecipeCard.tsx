@@ -22,7 +22,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
       onClick={onClick}
     >
       <div className='hover-zoom'>
-        {/* TODO: update image to use Next.js Image */}
+        {/* TODO: update image to use Next.js Image and add loader */}
         <Card.Img variant='top' src={strMealThumb} draggable={false} />
       </div>
       <Card.Body>

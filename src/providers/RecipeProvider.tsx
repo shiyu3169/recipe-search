@@ -13,6 +13,9 @@ export type Recipe = {
   strMeal: string
   strInstructions: string
   strMealThumb: string
+  strArea: string
+  strCategory: string
+  [x: string]: string
 }
 type RecipeState = {
   recipes: Recipe[]
